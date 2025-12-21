@@ -1,4 +1,5 @@
 import {type BookModel} from '../models/BookModel'
+import styles from '../../../App.module.css';
 
 interface BookModelCard {
   book: BookModel;
@@ -6,21 +7,20 @@ interface BookModelCard {
 
 function PostBookCard ({book}: BookModelCard) {
   return (
-       <div className="book-card">
-            <div className="book-image">
-                <img src="{book.imageUrl}" alt="Обложка книги"/>
-            </div>
-            <div className="book-info">
-                <div className="book-category">{book.category}</div>
-                <h3 className="book-title">{book.title}</h3>
-                <div className="book-author">{book.author}</div>
-                <div className="book-price">
-                    <div className="price">{book.price} руб</div>
-                        <button className="add-to-cart">В корзину</button>
-                    </div>
-                </div>
+    <div className={styles.bookCard}>
+      <div className={styles.bookImage}>
+        <img src={book.imageUrl} alt="Обложка книги"/>
+      </div>
+      <div className={styles.bookInfo}>
+        <h3 className={styles.bookTitle}>{book.title}</h3>
+        <div className={styles.bookAuthor}>{book.author}</div>
+        <div className={styles.bookPrice}>
+          <div className={styles.price}>{book.price}</div>
+          <button className={styles.addToCart}>В корзину</button>
         </div>
-  )
+      </div>
+    </div>
+    )
 }
 
 export default PostBookCard;
