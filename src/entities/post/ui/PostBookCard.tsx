@@ -1,11 +1,12 @@
 import {type BookModel} from '../models/BookModel'
 import styles from '../../../App.module.css';
+import {addToCartButton} from '../../../shared/ui/Button/buttons';
 
-interface BookModelCard {
-  book: BookModel;
+function PostBookCard ({book}: { book: BookModel }) {
+
+  const handleAddToCard = (event: React.MouseEvent<HTMLButtonElement>) => {
+  addToCartButton(event, book)
 }
-
-function PostBookCard ({book}: BookModelCard) {
   return (
     <div className={styles.bookCard}>
       <div className={styles.bookImage}>
@@ -16,7 +17,7 @@ function PostBookCard ({book}: BookModelCard) {
         <div className={styles.bookAuthor}>{book.author}</div>
         <div className={styles.bookPrice}>
           <div className={styles.price}>{book.price}</div>
-          <button className={styles.addToCart}>В корзину</button>
+          <button className={styles.addToCart} onClick={handleAddToCard}>В корзину</button>
         </div>
       </div>
     </div>
