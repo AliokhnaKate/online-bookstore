@@ -32,8 +32,11 @@
     max-width: 50%;
     border: 1px solid black;
   }
+  .header {
+    display: flex;
+  }
 
-  .modalContent__closeButton {
+  .header__closeButton {
       position: absolute;
       top: 10px;
       right: 15px;
@@ -42,21 +45,20 @@
       height: 20px;
     }
 
-  .modalContent__closeButton span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 10px;
-  height: 1px;
-  background-color: #333;
-  transform-origin: center;
+  .header__closeButton span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 1px;
+      background-color: #333;
+      transform-origin: center;
 }
 
-.modalContent__closeButton span:first-child {
+.header__closeButton span:first-child {
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.modalContent__closeButton span:last-child {
+.header__closeButton span:last-child {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
-
