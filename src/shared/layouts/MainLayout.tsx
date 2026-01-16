@@ -1,0 +1,65 @@
+import {useCallback, useState} from "react";
+import type {LoadingStates} from "../../entities/post/models/LoadingStates";
+import {Outlet} from "react-router-dom";
+import {PostLengthFilter} from "../../features/PostLengthFilter/ui/PostLengthFilter";
+import BookCategories from "../../widgets/PostList/BookCategories";
+
+export interface MainOutletContext {
+  loadingStates: LoadingStates;
+  updateLoading: (component: keyof LoadingStates, value: boolean) => void;
+  filterOptions: {
+    shouldFilter: boolean;
+    maxLength: number;
+    minLength: number;
+  }
+};
+
+function MainLayout () {
+    const [loadingStates, setLoadingStates] = useState<LoadingStates>({
+    LoadingRecommendedBooks: true,
+    LoadingBooksForChildren: true,
+    LoadingDetectivesAndThrillers: true,
+    LoadingFantasyBooks: true,
+    LoadingFictionBooks: true,
+    LoadingAlbumPhotos: true,
+    LoadingPostComments: true,
+    LoadingPosts: true,
+    LoadingUserAlbums: true,
+    LoadingUserPosts: true,
+    LoadingUserTodos: true
+    })
+
+    //ф-я обновления состояния компонента
+    const updateLoading = useCallback((component: keyof LoadingStates, value: boolean) => {
+    setLoadingStates(prev => ({
+        ...prev,
+        [component]: value
+    }));
+    }, []);
+
+    const [isFilterActive, setIsFilterActive] = useState(false);
+
+  const filterOptions = {
+    shouldFilter: !isFilterActive,
+    maxLength: 15,
+    minLength: 1
+  };
+
+  const toggle = useCallback(() => {
+      setIsFilterActive(prev => !prev);
+  }, []);
+
+    return (
+        <>
+            <PostLengthFilter 
+                isActive={isFilterActive}
+                onToggle={toggle}
+                maxLength={filterOptions.maxLength}
+                minLength={filterOptions.minLength}
+            />
+            <BookCategories />
+            <Outlet context={{ loadingStates, updateLoading, filterOptions }} />
+        </>
+    )
+}
+export default MainLayout;

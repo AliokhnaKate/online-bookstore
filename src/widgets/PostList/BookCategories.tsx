@@ -1,30 +1,29 @@
-import BooksForChildren from './BooksForChildren';
-import DetectivesAndThrillers from './DetectivesAndThrillers';
-import FantasyBooks from './FantasyBooks';
-import FictionBooks from './FictionBooks';
-import RecommendedBooks from './RecommendedBooks';
 import styles from '../../App.module.css';
-import {Link} from 'react-router-dom';
+import UserTabs from '../UserTabs/UserTabs';
 
 function BookCategories() {
-  const categoriesBooks = [
-    {id: 'Recommend', path: '/recommended', component: <RecommendedBooks />, text:'Рекомендуемые книги'},
-    {id: 'ForChildren', path: '/forChildren', component: <BooksForChildren />, text:'Детские книги'},
-    {id: 'DetAndThril', path: '/detAndThril', component: <DetectivesAndThrillers />, text: 'Детективы и триллеры'},
-    {id: 'Fantasy', path: '/fantasy', component: <FantasyBooks />, text: 'Фантастика'},
-    {id: 'Fiction', path: '/fiction', component: <FictionBooks />, text: 'Художественные книги'},
-  ]
+
+      const categoriesBooks = [
+        {id: 'Recommend', path: '/recommended', text:'Рекомендуемые книги'},
+        {id: 'ForChildren', path: '/forChildren',  text:'Детские книги'},
+        {id: 'DetAndThril', path: '/detAndThril', text: 'Детективы и триллеры'},
+        {id: 'Fantasy', path: '/fantasy', text: 'Фантастика'},
+        {id: 'Fiction', path: '/fiction', text: 'Художественные книги'},
+        
+        {id: 'Photos', path: '/albums/:id/photos', text: 'Фото пользователей'},
+        {id: 'Comments', path: '/posts/:id', text: 'Комментарии пользователей'},
+        {id: 'Posts', path: '/posts', text: 'Посты пользователей'},
+        {id: 'PostsUser', path: '/users/:id/posts', text: 'Посты пользователя'},
+        {id: 'Albums', path: '/users/:id/albums', text: 'Альбомы пользователя'},
+        {id: 'Todos', path: '/users/:id/todos', text: 'Задачи пользователей'},
+    ];
+
   return (
     <>
     <aside className={styles.sidebar}>
         <h3>Категории</h3>
-        <div className={styles.categories}>
-            {categoriesBooks.map(item => (
-              <Link key={item.id} to={item.path}>
-                {item.text}
-              </Link>
-            ))}
-            </div>
+        <UserTabs 
+        categoriesBooks={categoriesBooks}/>
     </aside>
     </>
   )

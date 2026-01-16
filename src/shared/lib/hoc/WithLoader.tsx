@@ -4,6 +4,12 @@ import DetectivesAndThrillers from "../../../widgets/PostList/DetectivesAndThril
 import FantasyBooks from "../../../widgets/PostList/FantasyBooks";
 import FictionBooks from "../../../widgets/PostList/FictionBooks";
 import RecommendedBooks from "../../../widgets/PostList/RecommendedBooks";
+import AlbumPhotos from "../../../widgets/PostList/AlbumPhotos";
+import PostComments from "../../../widgets/PostList/PostComments";
+import UserAlbums from "../../../widgets/PostList/UserAlbums";
+import UserPosts from "../../../widgets/PostList/UserPosts";
+import UserTodos from "../../../widgets/PostList/UserTodos";
+import Posts from "../../../widgets/PostList/Posts";
 
 interface OptionsLoading {
   loadingText?: string;
@@ -22,7 +28,7 @@ export interface WithLoadingProps {
 }
 
 // HOC: P extends object - дженерик для пропсов оборачиваемого компонента
-function withLoading<P extends object>(
+export function withLoading<P extends object>(
     WrappedComponent: ComponentType<P>, // Компонент, который нужно обернуть
     options: OptionsLoading = {}, // Настройки HOC (по умолчанию пустой объект)
     ): ComponentType<P & WithLoadingProps> { // Возвращаем новый компонент с доп. пропсами
@@ -33,7 +39,7 @@ function withLoading<P extends object>(
         showSpinner = true,               // Если не передано, будет true
     } = options; // Берём из переданных options
 
-    // 5. ВНУТРЕННИЙ КОМПОНЕНТ, КОТОРЫЙ ВОЗВРАЩАЕТ HOC
+    // ВНУТРЕННИЙ КОМПОНЕНТ, КОТОРЫЙ ВОЗВРАЩАЕТ HOC
     function LoadingWrapper (props: P & WithLoadingProps) {
         const {loading, updateLoading, ...restProps} = props;
 
@@ -89,3 +95,10 @@ export const LoadingDetectivesAndThrillers = withLoading(DetectivesAndThrillers,
 export const LoadingFantasyBooks = withLoading(FantasyBooks, {loadingText: '...Загрузка раздела Фантастика', showSpinner: true});
 export const LoadingFictionBooks = withLoading(FictionBooks, {loadingText: '...Загрузка раздела Художественная литература', showSpinner: true});
 export const LoadingRecommendedBooks = withLoading(RecommendedBooks, {loadingText: '...Загрузка раздела Рекомендуемые книги', showSpinner: true});
+
+export const LoadingAlbumPhotos = withLoading(AlbumPhotos, {loadingText: '...Загрузка раздела Фото пользователей', showSpinner: true});
+export const LoadingPostComments = withLoading(PostComments, {loadingText: '...Загрузка раздела Посты комментариев пользователей', showSpinner: true});
+export const LoadingPosts = withLoading(Posts, {loadingText: '...Загрузка раздела Посты всех пользователей', showSpinner: true});
+export const LoadingUserAlbums = withLoading(UserAlbums, {loadingText: '...Загрузка раздела Альбомы пользователя', showSpinner: true});
+export const LoadingUserPosts = withLoading(UserPosts, {loadingText: '...Загрузка раздела Посты пользователя', showSpinner: true});
+export const LoadingUserTodos = withLoading(UserTodos, {loadingText: '...Загрузка раздела Задачи пользователя', showSpinner: true});
