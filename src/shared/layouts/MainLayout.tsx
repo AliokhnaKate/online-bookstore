@@ -22,7 +22,7 @@ function MainLayout () {
     LoadingFantasyBooks: true,
     LoadingFictionBooks: true,
     LoadingAlbumPhotos: true,
-    LoadingPostComments: true,
+    LoadingPostCommentsUser: true,
     LoadingPosts: true,
     LoadingUserAlbums: true,
     LoadingUserPosts: true,

@@ -13,3 +13,5 @@ export const ThemeContext=React.createContext<ThemeContextType>({
     theme: 'light',
     toggleTheme: () => {}
 });
+
+export const url = 'https://jsonplaceholder.typicode.com/';

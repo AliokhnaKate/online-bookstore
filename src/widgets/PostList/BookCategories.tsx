@@ -10,8 +10,8 @@ function BookCategories() {
         {id: 'Fantasy', path: '/fantasy', text: 'Фантастика'},
         {id: 'Fiction', path: '/fiction', text: 'Художественные книги'},
         
-        {id: 'Photos', path: '/albums/:id/photos', text: 'Фото пользователей'},
-        {id: 'Comments', path: '/posts/:id', text: 'Комментарии пользователей'},
+        {id: 'Photos', path: '/albums/:id/photos', text: 'Фото пользователя'},
+        {id: 'Comments', path: '/posts/:id/comments', text: 'Комментарии пользователей'},
         {id: 'Posts', path: '/posts', text: 'Посты пользователей'},
         {id: 'PostsUser', path: '/users/:id/posts', text: 'Посты пользователя'},
         {id: 'Albums', path: '/users/:id/albums', text: 'Альбомы пользователя'},
