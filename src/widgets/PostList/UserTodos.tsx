@@ -1,5 +1,5 @@
 import {todosApi} from "../../entities/[entity]/api/Api";
-import type {UserTodosModel} from "../../entities/post/models/UserTodosModel";
+import type {UserTodoModel} from "../../entities/[entity]/model/types";
 const { useGetTodosQuery } = todosApi;
 
 function UserTodos () {
@@ -9,9 +9,9 @@ function UserTodos () {
   return (
     <>
       <div>Задачи пользователя</div>
-      {users?.map((user: UserTodosModel) => (
+      {users?.map((user: UserTodoModel) => (
           <div key={user.id}>
-            <p>{user.title}</p>
+            <span>{user.title}</span>
           </div>
         )
       )}

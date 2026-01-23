@@ -4,6 +4,7 @@ export interface LoadingStates {
   LoadingDetectivesAndThrillers: boolean;
   LoadingFantasyBooks: boolean;
   LoadingFictionBooks: boolean;
+  LoadingUsers: boolean;
   LoadingAlbumPhotos: boolean;
   LoadingPostCommentsUser: boolean;
   LoadingPosts: boolean;

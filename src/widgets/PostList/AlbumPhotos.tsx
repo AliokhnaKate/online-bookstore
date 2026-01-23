@@ -1,5 +1,5 @@
 import {albumsApi} from "../../entities/[entity]/api/Api";
-import type {UserPhotoModel} from "../../entities/post/models/UserPhotoModel";
+import type {UserAlbumPhotosModel} from "../../entities/[entity]/model/types";
 const {useGetAlbumsQuery } = albumsApi;
 
 function AlbumPhotos () {
@@ -9,7 +9,7 @@ function AlbumPhotos () {
   return (
     <>
       <div>Фото пользователя</div>
-      {albums?.map((album: UserPhotoModel) => (
+      {albums?.map((album: UserAlbumPhotosModel) => (
         <div key={album.id}>
           <img src={album.thumbnailUrl} alt={album.title} />
         </div>

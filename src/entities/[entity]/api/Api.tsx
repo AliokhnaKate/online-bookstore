@@ -1,6 +1,7 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {url} from "../../../shared/constants/constants";
 import type {Post} from "../../../features/PostList/model/hooks/UsePosts";
+import type {UserModel} from "../model/types";
 
 //функция createApi для создания API
 export const postsApi = createApi({
@@ -71,7 +72,7 @@ export const usersApi = createApi({
     baseQuery: fetchBaseQuery({baseUrl: url}),
     tagTypes: ['Users'],
     endpoints: (builder) => ({
-        getUsers: builder.query({
+        getUsers: builder.query<UserModel[], void>({
             query: () => '/users',
             providesTags: ['Users']
         })    

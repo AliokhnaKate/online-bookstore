@@ -21,6 +21,7 @@ function MainLayout () {
     LoadingDetectivesAndThrillers: true,
     LoadingFantasyBooks: true,
     LoadingFictionBooks: true,
+    LoadingUsers: true,
     LoadingAlbumPhotos: true,
     LoadingPostCommentsUser: true,
     LoadingPosts: true,

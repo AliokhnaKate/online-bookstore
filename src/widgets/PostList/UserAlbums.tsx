@@ -1,7 +1,7 @@
 function UserAlbums () {
   return (
     <>
-      <div>Альбомы пользователя</div>
+      <div>Альбом пользователя</div>
     </>
   )
 }

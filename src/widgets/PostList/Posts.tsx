@@ -1,5 +1,5 @@
 import {postsApi} from "../../entities/[entity]/api/Api";
-import type {PostModel} from "../../entities/post/models/PostModel";
+import type {PostModel} from "../../entities/[entity]/model/types";
 
 const {useGetPostsQuery} = postsApi;
 

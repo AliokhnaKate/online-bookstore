@@ -10,6 +10,7 @@ import UserPosts from "../../../widgets/PostList/UserPosts";
 import UserTodos from "../../../widgets/PostList/UserTodos";
 import Posts from "../../../widgets/PostList/Posts";
 import UserPostComments from "../../../widgets/PostList/UserPostComments";
+import Users from "../../../widgets/PostList/Users";
 
 interface OptionsLoading {
   loadingText?: string;
@@ -96,6 +97,7 @@ export const LoadingFantasyBooks = withLoading(FantasyBooks, {loadingText: '...�
 export const LoadingFictionBooks = withLoading(FictionBooks, {loadingText: '...Загрузка раздела Художественная литература', showSpinner: true});
 export const LoadingRecommendedBooks = withLoading(RecommendedBooks, {loadingText: '...Загрузка раздела Рекомендуемые книги', showSpinner: true});
 
+export const LoadingUsers = withLoading(Users, {loadingText: 'Загрузка пользователей', showSpinner: true})
 export const LoadingAlbumPhotos = withLoading(AlbumPhotos, {loadingText: '...Загрузка раздела Фото пользователей', showSpinner: true});
 export const LoadingPostCommentsUser = withLoading(UserPostComments, {loadingText: '...Загрузка раздела Посты комментариев пользователей', showSpinner: true});
 export const LoadingPosts = withLoading(Posts, {loadingText: '...Загрузка раздела Посты всех пользователей', showSpinner: true});
