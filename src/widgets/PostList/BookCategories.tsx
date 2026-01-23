@@ -10,6 +10,7 @@ function BookCategories() {
         {id: 'Fantasy', path: '/fantasy', text: 'Фантастика'},
         {id: 'Fiction', path: '/fiction', text: 'Художественные книги'},
         
+        {id: 'Users', path: '/users', text: 'Пользователи'},
         {id: 'Photos', path: '/albums/:id/photos', text: 'Фото пользователя'},
         {id: 'Comments', path: '/posts/:id/comments', text: 'Комментарии пользователей'},
         {id: 'Posts', path: '/posts', text: 'Посты пользователей'},
