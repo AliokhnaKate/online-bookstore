@@ -1,6 +1,9 @@
 import {useOutletContext} from "react-router-dom";
 import type {MainOutletContext} from "../shared/layouts/MainLayout";
-import {LoadingRecommendedBooks} from "../shared/lib/hoc/WithLoader";
+import {withLoading} from "../shared/lib/hoc/WithLoader";
+import RecommendedBooks from "../widgets/PostList/RecommendedBooks";
+
+const LoadingRecommendedBooks = withLoading(RecommendedBooks, {loadingText: '...Загрузка раздела Рекомендуемые книги', showSpinner: true});
 
 function RecommendedPage () {
     const {loadingStates, updateLoading, filterOptions} = useOutletContext<MainOutletContext>();
