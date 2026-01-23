@@ -1,6 +1,9 @@
 import {useOutletContext} from "react-router-dom";
 import type {MainOutletContext} from "../shared/layouts/MainLayout";
-import {LoadingPostCommentsUser} from "../shared/lib/hoc/WithLoader";
+import {withLoading} from "../shared/lib/hoc/WithLoader";
+import UserPostComments from "../widgets/PostList/UserPostComments";
+
+const LoadingPostCommentsUser = withLoading(UserPostComments, {loadingText: '...Загрузка раздела Посты комментариев пользователей', showSpinner: true});
 
 function UserPostCommentsPage () {
     const {loadingStates, updateLoading, filterOptions} = useOutletContext<MainOutletContext>();

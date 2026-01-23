@@ -1,6 +1,9 @@
 import {useOutletContext} from "react-router-dom";
 import type {MainOutletContext} from "../shared/layouts/MainLayout";
-import {LoadingUserAlbums} from "../shared/lib/hoc/WithLoader";
+import {withLoading} from "../shared/lib/hoc/WithLoader";
+import UserAlbums from "../widgets/PostList/UserAlbums";
+
+const LoadingUserAlbums = withLoading(UserAlbums, {loadingText: '...Загрузка раздела Альбомы пользователя', showSpinner: true});
 
 function UserAlbumsPage () {
     const {loadingStates, updateLoading, filterOptions} = useOutletContext<MainOutletContext>();

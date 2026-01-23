@@ -1,6 +1,9 @@
 import {useOutletContext} from "react-router-dom";
 import type {MainOutletContext} from "../shared/layouts/MainLayout";
-import {LoadingFictionBooks} from "../shared/lib/hoc/WithLoader";
+import {withLoading} from "../shared/lib/hoc/WithLoader";
+import FictionBooks from "../widgets/PostList/FictionBooks";
+
+const LoadingFictionBooks = withLoading(FictionBooks, {loadingText: '...Загрузка раздела Художественная литература', showSpinner: true});
 
 function FictionPage () {
     const {loadingStates, updateLoading, filterOptions} = useOutletContext<MainOutletContext>();
